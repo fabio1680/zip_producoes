@@ -1,0 +1,63 @@
+<h2>Eventos</h2>
+
+<table class="table table-striped">
+
+<thead>
+
+<tr>
+
+<th>Cliente</th>
+
+<th>Tipo</th>
+
+<th>Data</th>
+
+<th>Hora</th>
+
+<th>Situação</th>
+
+<th>Valor</th>
+
+<th></th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<% @eventos.each do |evento| %>
+
+<tr>
+
+<td><%= evento.cliente.nome %></td>
+
+<td><%= evento.tipo %></td>
+
+<td><%= evento.data %></td>
+
+<td><%= evento.hora %></td>
+
+<td><%= evento.situacao %></td>
+
+<td>R$ <%= evento.valor %></td>
+
+<td>
+
+<%= link_to "Ver", evento %>
+
+<%= link_to "Editar", edit_evento_path(evento) %>
+
+</td>
+
+</tr>
+
+<% end %>
+
+</tbody>
+
+</table>
+
+<%= link_to "Novo Evento",
+new_evento_path,
+class:"btn btn-primary" %>

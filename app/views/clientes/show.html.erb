@@ -1,10 +1,108 @@
-<p style="color: green"><%= notice %></p>
+<div class="card shadow-lg rounded-4">
 
-<%= render @cliente %>
+<div class="card-header bg-primary text-white">
 
-<div>
-  <%= link_to "Edit this cliente", edit_cliente_path(@cliente) %> |
-  <%= link_to "Back to clientes", clientes_path %>
+<h2>
+👤 Dados do Cliente
+</h2>
 
-  <%= button_to "Destroy this cliente", @cliente, method: :delete %>
+</div>
+
+
+<div class="card-body">
+
+
+<h3>
+<%= @cliente.nome %>
+</h3>
+
+
+<hr>
+
+
+<p>
+<strong>CPF:</strong>
+<%= @cliente.cpf %>
+</p>
+
+
+<p>
+<strong>Telefone:</strong>
+<%= @cliente.telefone %>
+</p>
+
+
+<p>
+<strong>WhatsApp:</strong>
+<%= @cliente.whatsapp %>
+</p>
+
+
+<p>
+<strong>Email:</strong>
+<%= @cliente.email %>
+</p>
+
+
+<p>
+<strong>Endereço:</strong>
+<%= @cliente.endereco %>
+</p>
+
+
+<p>
+<strong>Cidade:</strong>
+<%= @cliente.cidade %>
+</p>
+
+
+<p>
+<strong>Estado:</strong>
+<%= @cliente.estado %>
+</p>
+
+
+<p>
+<strong>CEP:</strong>
+<%= @cliente.cep %>
+</p>
+
+
+<p>
+<strong>Observações:</strong>
+<%= @cliente.observacoes %>
+</p>
+
+
+
+<div class="mt-4">
+
+
+<%= link_to "✏ Editar",
+edit_cliente_path(@cliente),
+class:"btn btn-warning"
+%>
+
+
+<%= link_to "🗑 Excluir",
+@cliente,
+data:{
+turbo_method: :delete,
+turbo_confirm:"Excluir cliente?"
+},
+class:"btn btn-danger"
+%>
+
+
+<%= link_to "⬅ Voltar",
+clientes_path,
+class:"btn btn-secondary"
+%>
+
+
+</div>
+
+
+</div>
+
 </div>

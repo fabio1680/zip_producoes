@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cliente: one
+  tipo: MyString
+  data: 2026-07-08
+  hora: 2026-07-08 20:34:28
+  local: MyString
+  valor: 9.99
+  sinal: 9.99
+  restante: 9.99
+  situacao: MyString
+  equipe: MyString
+  observacoes: MyText
+
+two:
+  cliente: two
+  tipo: MyString
+  data: 2026-07-08
+  hora: 2026-07-08 20:34:28
+  local: MyString
+  valor: 9.99
+  sinal: 9.99
+  restante: 9.99
+  situacao: MyString
+  equipe: MyString
+  observacoes: MyText

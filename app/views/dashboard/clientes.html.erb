@@ -1,0 +1,127 @@
+<div class="container">
+
+<h1 class="text-center mb-4">
+📊 Dashboard Clientes
+</h1>
+
+
+<div class="row">
+
+
+<div class="col-md-4">
+
+<div class="card shadow text-center p-4">
+
+<h3>
+👥 Clientes
+</h3>
+
+<h1>
+<%= @total_clientes %>
+</h1>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md-4">
+
+<div class="card shadow text-center p-4">
+
+<h3>
+📅 Eventos
+</h3>
+
+<h1>
+<%= @eventos %>
+</h1>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md-4">
+
+<div class="card shadow text-center p-4">
+
+<h3>
+📷 Galeria
+</h3>
+
+<h1>
+0
+</h1>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<hr>
+
+
+<h2>
+Últimos Clientes
+</h2>
+
+
+<div class="row">
+
+
+<% @clientes.each do |cliente| %>
+
+
+<div class="col-md-4 mb-3">
+
+
+<div class="card shadow">
+
+
+<div class="card-body">
+
+
+<h4>
+<%= cliente.nome %>
+</h4>
+
+
+<p>
+📱 <%= cliente.telefone %>
+</p>
+
+
+<p>
+📍 <%= cliente.cidade %>
+</p>
+
+
+<%= link_to "Ver Cliente",
+cliente,
+class:"btn btn-primary"
+%>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+<% end %>
+
+
+</div>
+
+
+</div>

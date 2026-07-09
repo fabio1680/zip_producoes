@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_07_07_225404) do
+ActiveRecord::Schema[8.1].define(version: 2026_07_08_233428) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -28,4 +28,23 @@ ActiveRecord::Schema[8.1].define(version: 2026_07_07_225404) do
     t.datetime "updated_at", null: false
     t.string "whatsapp"
   end
+
+  create_table "eventos", force: :cascade do |t|
+    t.bigint "cliente_id", null: false
+    t.datetime "created_at", null: false
+    t.date "data"
+    t.string "equipe"
+    t.time "hora"
+    t.string "local"
+    t.text "observacoes"
+    t.decimal "restante"
+    t.decimal "sinal"
+    t.string "situacao"
+    t.string "tipo"
+    t.datetime "updated_at", null: false
+    t.decimal "valor"
+    t.index ["cliente_id"], name: "index_eventos_on_cliente_id"
+  end
+
+  add_foreign_key "eventos", "clientes"
 end

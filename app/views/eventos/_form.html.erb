@@ -1,0 +1,132 @@
+<%= form_with(model: evento) do |form| %>
+
+<div class="card shadow-lg p-4">
+
+<h3 class="mb-4">
+📅 Cadastro de Evento
+</h3>
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+<%= form.label :cliente %>
+<%= form.collection_select :cliente_id,
+Cliente.all,
+:id,
+:nome,
+{prompt: "Selecione"},
+class: "form-select" %>
+</div>
+
+<div class="col-md-6 mb-3">
+<%= form.label :tipo %>
+<%= form.select :tipo,
+[
+"Casamento",
+"15 Anos",
+"Aniversário",
+"Formatura",
+"Igreja",
+"Show",
+"Palestra",
+"Corporativo"
+],
+{},
+class:"form-select"
+%>
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-4 mb-3">
+<%= form.label :data %>
+<%= form.date_field :data, class:"form-control" %>
+</div>
+
+<div class="col-md-4 mb-3">
+<%= form.label :hora %>
+<%= form.time_field :hora, class:"form-control" %>
+</div>
+
+<div class="col-md-4 mb-3">
+<%= form.label :local %>
+<%= form.text_field :local, class:"form-control" %>
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-4 mb-3">
+<%= form.label :valor %>
+<%= form.number_field :valor,
+step:0.01,
+class:"form-control" %>
+</div>
+
+<div class="col-md-4 mb-3">
+<%= form.label :sinal %>
+<%= form.number_field :sinal,
+step:0.01,
+class:"form-control" %>
+</div>
+
+<div class="col-md-4 mb-3">
+<%= form.label :restante %>
+<%= form.number_field :restante,
+step:0.01,
+class:"form-control" %>
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+<%= form.label :situacao %>
+
+<%= form.select :situacao,
+[
+"Agendado",
+"Confirmado",
+"Pago",
+"Finalizado",
+"Cancelado"
+],
+{},
+class:"form-select"
+%>
+
+</div>
+
+<div class="col-md-6 mb-3">
+<%= form.label :equipe %>
+<%= form.text_field :equipe,
+class:"form-control" %>
+</div>
+
+</div>
+
+<div class="mb-3">
+<%= form.label :observacoes %>
+<%= form.text_area :observacoes,
+rows:4,
+class:"form-control" %>
+</div>
+
+<div class="text-end">
+
+<%= form.submit "Salvar Evento",
+class:"btn btn-success" %>
+
+<%= link_to "Voltar",
+eventos_path,
+class:"btn btn-secondary" %>
+
+</div>
+
+</div>
+
+<% end %>
