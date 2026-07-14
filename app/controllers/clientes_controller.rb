@@ -19,20 +19,31 @@ class ClientesController < ApplicationController
   def edit
   end
 
-  # POST /clientes or /clientes.json
-  def create
-    @cliente = Cliente.new(cliente_params)
+  # POST /clientes
+def create
+  @cliente = Cliente.new(cliente_params)
 
-    respond_to do |format|
-      if @cliente.save
-        format.html { redirect_to @cliente, notice: "Cliente was successfully created." }
-        format.json { render :show, status: :created, location: @cliente }
-      else
-        format.html { render :new, status: :unprocessable_content }
-        format.json { render json: @cliente.errors, status: :unprocessable_content }
+  respond_to do |format|
+    if @cliente.save
+
+      # Enviar WhatsApp automaticamente
+      WhatsappService.enviar(numero, mensagem)
+
+      format.html do
+        redirect_to @cliente,
+        notice: "Cliente cadastrado com sucesso! Mensagem enviada."
       end
+
+      format.json do
+        render :show, status: :created, location: @cliente
+      end
+
+    else
+      format.html { render :new, status: :unprocessable_content }
+      format.json { render json: @cliente.errors, status: :unprocessable_content }
     end
   end
+end
 
   # PATCH/PUT /clientes/1 or /clientes/1.json
   def update
@@ -57,6 +68,28 @@ class ClientesController < ApplicationController
     end
   end
 
+  def cadastro_rapido
+  @cliente = Cliente.new
+end
+
+def salvar_rapido
+  @cliente = Cliente.new(
+    nome: params[:cliente][:nome],
+    whatsapp: params[:cliente][:whatsapp]
+  )
+
+  if @cliente.save
+  WhatsappService.enviar(
+    @cliente.whatsapp,
+    "Olá #{@cliente.nome}! Seja bem-vindo à ZIP Produções. Seu cadastro foi realizado com sucesso."
+  )
+
+  redirect_to @cliente, notice: "Cliente cadastrado com sucesso!"
+else
+  render :new, status: :unprocessable_entity
+    end
+end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cliente
@@ -68,3 +101,4 @@ class ClientesController < ApplicationController
       params.expect(cliente: [ :nome, :cpf, :telefone, :whatsapp, :email, :endereco, :cidade, :estado, :cep, :observacoes ])
     end
 end
+

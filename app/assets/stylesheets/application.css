@@ -1,10 +1,47 @@
 /*
  * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
  */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+
+    /* Fundo degradê */
+    background: linear-gradient(135deg, #020024 0%, #0a3d62 45%, #1e5799 100%);
+    background-attachment: fixed;
+    color: white;
+}
+
+/* Navbar */
+.navbar {
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(10px);
+}
+
+/* Cards */
+.card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.3);
+    color: white;
+}
+
+/* Botões */
+.btn-primary {
+    background: #0d6efd;
+    border: none;
+    border-radius: 10px;
+}
+
+.btn-primary:hover {
+    background: #0056d2;
+}
+
+/* Títulos */
+h1, h2, h3, h4 {
+    font-weight: bold;
+    color: #ffffff;
+}

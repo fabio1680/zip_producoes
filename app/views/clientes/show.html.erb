@@ -84,14 +84,11 @@ class:"btn btn-warning"
 %>
 
 
-<%= link_to "🗑 Excluir",
-@cliente,
-data:{
-turbo_method: :delete,
-turbo_confirm:"Excluir cliente?"
-},
-class:"btn btn-danger"
-%>
+<%= button_to "🗑 Excluir",
+      @cliente,
+      method: :delete,
+      data: { turbo_confirm: "Excluir cliente?" },
+      class: "btn btn-danger d-inline" %>
 
 
 <%= link_to "⬅ Voltar",

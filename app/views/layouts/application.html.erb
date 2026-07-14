@@ -10,103 +10,399 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <style>
-    body {
-      background: #f4f6f9;
-      font-family: Arial, sans-serif;
-    }
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    .navbar {
-      border-radius: 15px;
-      padding: 15px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
 
-    .navbar-brand {
-      font-size: 22px;
-      font-weight: bold;
-    }
+<style>
 
-    .btn-menu {
-      border-radius: 30px;
-      padding: 10px 20px;
-      font-weight: 600;
-      transition: 0.3s;
-    }
+body {
+  background:#f4f6f9;
+  font-family:'Segoe UI',Arial,sans-serif;
+}
 
-    .btn-menu:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 5px 12px rgba(0,0,0,0.25);
-    }
 
-    .card {
-      border-radius: 20px;
-      border: none;
-    }
+/* MENU LATERAL */
 
-  </style>
+.sidebar {
+
+  width:260px;
+  height:100vh;
+  position:fixed;
+  left:0;
+  top:0;
+
+  background:#111827;
+
+  padding:25px;
+
+  color:white;
+
+}
+
+
+.logo {
+
+ font-size:24px;
+ font-weight:bold;
+ color:#d4af37;
+ margin-bottom:35px;
+
+}
+
+
+
+.sidebar a {
+
+ display:flex;
+
+ align-items:center;
+
+ gap:12px;
+
+ color:#ddd;
+
+ text-decoration:none;
+
+ padding:13px;
+
+ border-radius:12px;
+
+ margin-bottom:8px;
+
+ transition:.3s;
+
+}
+
+
+
+.sidebar a:hover {
+
+ background:#d4af37;
+
+ color:#111;
+
+ transform:translateX(5px);
+
+}
+
+
+
+/* CONTEÚDO */
+
+
+.content {
+
+ margin-left:260px;
+
+ padding:30px;
+
+}
+
+
+
+.topbar {
+
+ background:white;
+
+ padding:15px 25px;
+
+ border-radius:15px;
+
+ box-shadow:0 5px 15px rgba(0,0,0,.1);
+
+ margin-bottom:25px;
+
+}
+
+
+
+/* CARDS */
+
+
+.card {
+
+ border:none;
+
+ border-radius:20px;
+
+ box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+}
+
+.menu-cards {
+
+display:flex;
+
+gap:15px;
+
+}
+
+
+
+.dashboard-btn {
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+padding:14px 20px;
+
+background:white;
+
+border-radius:15px;
+
+text-decoration:none;
+
+color:#333;
+
+font-weight:600;
+
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+transition:.3s;
+
+}
+
+
+
+.dashboard-btn i {
+
+font-size:22px;
+
+}
+
+
+
+.dashboard-btn:hover {
+
+transform:translateY(-5px);
+
+box-shadow:0 10px 25px rgba(0,0,0,.25);
+
+}
+
+
+
+.clientes i {
+
+color:#2563eb;
+
+}
+
+
+.eventos i {
+
+color:#9333ea;
+
+}
+
+
+.financeiro i {
+
+color:#16a34a;
+
+}
+
+</style>
+
 
 </head>
 
+
 <body>
 
+<!-- MENU -->
 
-<div class="container mt-4">
-
-  <div class="card shadow p-4">
-
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<div class="sidebar">
 
 
-      <div class="container-fluid">
+<div class="logo">
 
+📸 ZIP Produções 
 
-        <a class="navbar-brand" href="/">
-          📷 ZIP Produções (Eternizando Momentos)
-        </a>
-
-
-        <div class="d-flex gap-2">
-
-
-          <a class="btn btn-light btn-menu" href="/clientes">
-            👥 Clientes
-          </a>
-
-
-          <a class="btn btn-light btn-menu" href="/eventos">
-            🎬 Eventos
-          </a>
-
-
-          <a class="btn btn-light btn-menu" href="/financeiro">
-            💰 Financeiro
-          </a>
-
-
-        </div>
-
-
-      </div>
-
-
-    </nav>
-
-
-    <div class="mt-4">
-
-      <%= yield %>
-
-    </div>
-
-
-  </div>
 
 </div>
 
 
+<a href="/">
+
+<i class="bi bi-speedometer2"></i>
+
+Dashboard
+
+</a>
+
+
+
+<a href="/clientes">
+
+<i class="bi bi-people"></i>
+
+Clientes
+
+</a>
+
+
+
+<a href="/eventos">
+
+<i class="bi bi-calendar-event"></i>
+
+Eventos
+
+</a>
+
+
+
+<a href="/financeiro">
+
+<i class="bi bi-cash-stack"></i>
+
+Financeiro
+
+</a>
+
+
+
+<a href="#">
+
+<i class="bi bi-images"></i>
+
+Galeria
+
+</a>
+
+
+
+<a href="#">
+
+<i class="bi bi-whatsapp"></i>
+
+WhatsApp
+
+</a>
+
+
+
+<a href="#">
+
+<i class="bi bi-file-earmark-text"></i>
+
+Contratos
+
+</a>
+
+
+
+<hr>
+
+
+<a href="#">
+
+<i class="bi bi-gear"></i>
+
+Configurações
+
+</a>
+
+
+</div>
+
+
+
+
+<!-- ÁREA PRINCIPAL -->
+
+
+<div class="content">
+
+
+<div class="topbar d-flex justify-content-between">
+
+
+<div>
+
+<h5 class="mb-0">
+
+Sistema Administrativo
+
+</h5>
+
+
+ZIP Produções 
+>> Gestão de Clientes</small>
+
+WhatsApp: (86) 988073262
+
+</div>
+<div class="menu-cards">
+
+
+<a href="/clientes" class="dashboard-btn clientes">
+
+  <i class="bi bi-people-fill"></i>
+
+  <span>
+    Clientes
+  </span>
+
+</a>
+
+
+
+<a href="/eventos" class="dashboard-btn eventos">
+
+  <i class="bi bi-calendar-event-fill"></i>
+
+  <span>
+    Eventos
+  </span>
+
+</a>
+
+
+
+<a href="/financeiro" class="dashboard-btn financeiro">
+
+  <i class="bi bi-cash-stack"></i>
+
+  <span>
+    Financeiro
+  </span>
+
+</a>
+
+
+</div>
+
+</a>
+
+<div>
+
+👤 Fabio Castro
+
+</div>
+
+
+</div>
+
+
+
+<%= yield %>
+
+
+
+</div>
+
+
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 
+
 </body>
+
 </html>

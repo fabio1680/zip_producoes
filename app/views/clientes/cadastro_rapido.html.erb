@@ -1,0 +1,45 @@
+<div class="container mt-5">
+
+  <div class="card shadow">
+
+    <div class="card-header bg-success text-white">
+
+      <h3>⚡ Cadastro Rápido</h3>
+
+    </div>
+
+    <div class="card-body">
+
+      <%= form_with model: Cliente.new, url: salvar_rapido_clientes_path, local: true do |f| %>
+
+        <div class="mb-3">
+
+          <%= f.label :nome %>
+
+          <%= f.text_field :nome,
+                class: "form-control",
+                required: true %>
+
+        </div>
+
+        <div class="mb-3">
+
+          <%= f.label :whatsapp %>
+
+          <%= f.telephone_field :whatsapp,
+                class: "form-control",
+                placeholder: "(86)99999-9999",
+                required: true %>
+
+        </div>
+
+        <%= f.submit "Salvar e Enviar",
+              class: "btn btn-success btn-lg w-100" %>
+
+      <% end %>
+
+    </div>
+
+  </div>
+
+</div>

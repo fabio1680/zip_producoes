@@ -1,0 +1,9 @@
+<h1>Contrato ZIP Produções</h1>
+
+<p><strong>Cliente:</strong> <%= @evento.cliente.nome %></p>
+
+<p><strong>Evento:</strong> <%= @evento.tipo %></p>
+
+<p><strong>Data:</strong> <%= @evento.data %></p>
+
+<%= link_to "Voltar", evento_path(@evento), class: "btn btn-secondary" %>
